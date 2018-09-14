@@ -1,6 +1,7 @@
 package br.com.packapps.androidroom_arc.dao
 
 import android.arch.persistence.room.*
+import android.arch.persistence.room.OnConflictStrategy.IGNORE
 import br.com.packapps.androidroom_arc.model.Team
 
 @Dao
@@ -14,6 +15,10 @@ interface TeamDao{
 
     @Insert
     fun insertTeam(team: Team) : Long
+
+    @Insert(onConflict = IGNORE)
+    fun insertOrReplaceTeams(vararg team: Team)
+
 
     @Delete
     fun deleteTeam(team: Team)

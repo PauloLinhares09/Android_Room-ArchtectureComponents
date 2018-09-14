@@ -4,7 +4,7 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
 
-@Entity
+@Entity(tableName = "team")
 class Team(
         @PrimaryKey val id : Long,
         val name : String,
