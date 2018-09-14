@@ -1,11 +1,10 @@
 package br.com.packapps.androidroom_arc.dao
 
-import android.arch.persistence.room.Delete
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Query
-import android.arch.persistence.room.Update
+import android.arch.persistence.room.*
+import android.arch.persistence.room.OnConflictStrategy.IGNORE
 import br.com.packapps.androidroom_arc.model.Player
 
+@Dao
 interface PlayerDao{
     @Query("SELECT * FROM Player ORDER BY id ASC")
     fun getAllTeams() : List<Player>
@@ -13,7 +12,7 @@ interface PlayerDao{
     @Query("SELECT * FROM Player WHERE Player.id = :myId")
     fun getPlayer(myId: Long) : Player
 
-    @Insert
+    @Insert(onConflict = IGNORE)
     fun insertPlayer(team: Player) : Long
 
     @Delete

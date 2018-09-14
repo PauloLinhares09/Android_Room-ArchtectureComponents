@@ -18,7 +18,7 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun getDatabaseInMemory(context: Context) : AppDatabase{
             if (INSTANCE == null) {
-                INSTANCE = Room.inMemoryDatabaseBuilder(context.applicationContext, AppDatabase::class.java)
+                INSTANCE = Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, "my_room_database")
                         // To simplify, allow queries on the main thread.
                         // Don't do this on a real app! See PersistenceBasicSample for an example.
                         .allowMainThreadQueries()

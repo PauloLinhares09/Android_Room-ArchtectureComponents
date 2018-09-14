@@ -2,6 +2,7 @@ package br.com.packapps.androidroom_arc
 
 import br.com.packapps.androidroom_arc.dao.AppDatabase
 import br.com.packapps.androidroom_arc.dao.TeamDao
+import br.com.packapps.androidroom_arc.model.Player
 import br.com.packapps.androidroom_arc.model.Team
 
 
@@ -16,6 +17,15 @@ class PopulateDatabaseExample{
 
             db.teamDao().insertOrReplaceTeams(listTeams.get(0), listTeams.get(1), listTeams.get(2))
 
+        }
+
+        fun insertPlayers(db : AppDatabase){
+            val listPlayers = mutableListOf<Player>()
+            listPlayers.add(Player(1, "Paquetá", "Esquerdo", 1))
+            listPlayers.add(Player(2, "Ronaldo Fenômeno", "Ambidestro", 2))
+            listPlayers.add(Player(3, "Ronaldo", "Direito", 3))
+
+            db.playerDao().insertPlayer(listPlayers.get(0))
         }
     }
 

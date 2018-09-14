@@ -25,7 +25,8 @@ class MainActivity : AppCompatActivity() {
 
         initRecycleView()
 
-        PopulateDatabaseExample.insertTeams(db!!)
+//        PopulateDatabaseExample.insertTeams(db!!)
+        PopulateDatabaseExample.insertPlayers(db!!)
 
 
     }
